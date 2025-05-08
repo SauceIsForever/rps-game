@@ -19,7 +19,7 @@ function getComputerChoice() {
 }
 
 function getHumanChoice(){
-    let user_choice = window.prompt("Type Rock, Paper or Scissors: ");
+    //let user_choice = window.prompt("Type Rock, Paper or Scissors: ");
     return user_choice   
 }
 

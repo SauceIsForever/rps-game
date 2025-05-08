@@ -1,0 +1,15 @@
+.header_title{
+    text-align: center;
+    padding-bottom: 100px;
+}
+
+.sectionOne{
+    display: flex;
+    justify-content: center;
+    gap: 80px;
+}
+
+.button {
+    height: 200px;
+    width: 200px;
+}
