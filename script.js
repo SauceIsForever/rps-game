@@ -18,10 +18,24 @@ function getComputerChoice() {
     }
 }
 
-function getHumanChoice(){
+function getHumanChoice(callback){
+    const buttons = document.querySelectorAll(".button");
+
+    buttons.forEach(button => {
+        button.addEventListener("click", (event) => {
+        const value = event.target.id;
+
+        if (value){
+            callback(value);
+        }
+        });
+        });
     //let user_choice = window.prompt("Type Rock, Paper or Scissors: ");
-    return user_choice   
+    //return user_choice   
 }
+
+
+    
 
 function playRound(humanChoice, computerChoice) {
         
@@ -35,48 +49,51 @@ function playRound(humanChoice, computerChoice) {
     //Human win scenarios
     if (humanChoice === "rock" && computerChoice === "scissors") {
         humanScore++;
+        document.getElementById("userScore").textContent = `User Score: ${humanScore}`;
         return "You win! Rock beats Scissors";
     }
     
     if (humanChoice === "paper" && computerChoice === "rock") {
         humanScore++;
+        document.getElementById("userScore").textContent = `User Score: ${humanScore}`;
         return "You win! Paper beats Rock";
     }
     
     if (humanChoice === "scissors" && computerChoice === "paper") {
         humanScore++;
+        document.getElementById("userScore").textContent = `User Score: ${humanScore}`;
         return "You win! Scissors beats Paper";
     }
     //Computer win scenarios
     if (computerChoice === "rock" && humanChoice === "scissors") {
         computerScore++;
+        document.getElementById("computerScore").textContent = `Computer Score: ${computerScore}`;
         return "You Lose! Rock beats Scissors";
     }
     
     if (computerChoice === "paper" && humanChoice=== "rock") {
         computerScore++;
+        document.getElementById("computerScore").textContent = `Computer Score: ${computerScore}`;
         return "You Lose! Paper beats Rock";
     }
     
     if (computerChoice === "scissors" && humanChoice === "paper") {
         computerScore++;
+        document.getElementById("computerScore").textContent = `Computer Score: ${computerScore}`;
         return "You Lose! Scissors beats Paper";
     }
 }
 
-function playGame(){
-    for (let i = 0; i < 5; i++) {
-        let humanSelection = getHumanChoice();
-        let computerSelecton = getComputerChoice();
-        
-        console.log("Human choice: " + humanSelection);
-        console.log("Computer choice: " + computerSelecton);
-        console.log(playRound(humanSelection, computerSelecton))
-        console.log(`Human Score: ${humanScore} : Computer Score: ${computerScore}`)  
-    }
+function playGame() {
+    getHumanChoice((humanChoice) => {
+        console.log("Human choice:", humanChoice);
+        let computerChoice = getComputerChoice();
+        console.log("Computer choice:", computerChoice);
+        console.log(playRound(humanChoice, computerChoice));
+    });
 }
 
-console.log(playGame())
+playGame()
 
 
 
