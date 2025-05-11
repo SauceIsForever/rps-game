@@ -19,6 +19,8 @@ function getComputerChoice() {
 }
 
 function getHumanChoice(callback){
+
+    
     const buttons = document.querySelectorAll(".button");
 
     buttons.forEach(button => {
@@ -36,52 +38,59 @@ function getHumanChoice(callback){
 }
 
 
-    
-
 function playRound(humanChoice, computerChoice) {
         
     humanChoice = humanChoice.toLowerCase();
     computerChoice = computerChoice.toLowerCase();
 
     if (humanChoice === computerChoice) {
-        return "It's a tie!";
+        document.getElementById("outcome").textContent = "It's a tie!";
+        document.getElementById("outcome").style.fontSize = "50px";
+
     }
 
     //Human win scenarios
     if (humanChoice === "rock" && computerChoice === "scissors") {
         humanScore++;
         document.getElementById("userScore").textContent = `User Score: ${humanScore}`;
-        return "You win! Rock beats Scissors";
+        document.getElementById("outcome").textContent = "You win! Rock beats Scissors";
+        document.getElementById("outcome").style.fontSize = "50px";
+
     }
     
     if (humanChoice === "paper" && computerChoice === "rock") {
         humanScore++;
         document.getElementById("userScore").textContent = `User Score: ${humanScore}`;
-        return "You win! Paper beats Rock";
+        document.getElementById("outcome").textContent = "You win! Paper beats Rock";
+        document.getElementById("outcome").style.fontSize = "50px";
     }
     
     if (humanChoice === "scissors" && computerChoice === "paper") {
         humanScore++;
         document.getElementById("userScore").textContent = `User Score: ${humanScore}`;
-        return "You win! Scissors beats Paper";
+        document.getElementById("outcome").textContent =  "You win! Scissors beats Paper";
+        document.getElementById("outcome").style.fontSize = "50px";
     }
     //Computer win scenarios
     if (computerChoice === "rock" && humanChoice === "scissors") {
         computerScore++;
         document.getElementById("computerScore").textContent = `Computer Score: ${computerScore}`;
-        return "You Lose! Rock beats Scissors";
+        document.getElementById("outcome").textContent = "You Lose! Rock beats Scissors";
+        document.getElementById("outcome").style.fontSize = "50px";
     }
     
     if (computerChoice === "paper" && humanChoice=== "rock") {
         computerScore++;
         document.getElementById("computerScore").textContent = `Computer Score: ${computerScore}`;
-        return "You Lose! Paper beats Rock";
+        document.getElementById("outcome").textContent = "You Lose! Paper beats Rock";
+        document.getElementById("outcome").style.fontSize = "50px";
     }
     
     if (computerChoice === "scissors" && humanChoice === "paper") {
         computerScore++;
         document.getElementById("computerScore").textContent = `Computer Score: ${computerScore}`;
-        return "You Lose! Scissors beats Paper";
+        document.getElementById("outcome").textContent = "You Lose! Scissors beats Paper";
+        document.getElementById("outcome").style.fontSize = "50px";
     }
 }
 
