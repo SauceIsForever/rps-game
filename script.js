@@ -23,15 +23,16 @@ function getHumanChoice(callback){
 
     buttons.forEach(button => {
         button.addEventListener("click", (event) => {
-        const value = event.target.id;
-
-        if (value){
-            callback(value);
+        const clickedElement = event.target;
+        if (clickedElement.tagName === 'IMG'){
+          callback(clickedElement.parentNode.id);
+        }
+        else if (clickedElement.id) {
+        callback(clickedElement.id);
         }
         });
-        });
-    //let user_choice = window.prompt("Type Rock, Paper or Scissors: ");
-    //return user_choice   
+        }); 
+ 
 }
 
 
